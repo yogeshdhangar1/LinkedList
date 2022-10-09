@@ -48,6 +48,21 @@ public class LinkedList {
           temp.ref=newNode;
          size++;
     }
+    public void deleteFirst() {
+        head = head.ref;
+
+    }
+
+    int size() {
+        int count = 0;
+
+        Node temp = head;
+        while (temp != null) {
+            count++;
+            temp = temp.ref;
+        }
+        return count;
+    }
         public void display() {
             if (head == null) {
                 System.out.println("List Is Empty");
@@ -69,6 +84,8 @@ public class LinkedList {
        list.addFirst(56);
        list.addLast(70);
        list.insert(30,1);
+        list.display();
+        list.deleteFirst();
         list.display();
     }
 }
