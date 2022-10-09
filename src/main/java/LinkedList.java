@@ -2,6 +2,7 @@ import javax.xml.soap.Node;
 import java.util.*;
 public class LinkedList {
     Node head;
+    int size;
     class Node {
         int data;
         Node ref;
@@ -26,6 +27,27 @@ public class LinkedList {
             temp.ref = newNode;
         }
     }
+    public void addFirst(int data){
+        Node newNode = new Node(data);
+        newNode .ref = head;
+        head = newNode;
+    }
+    public void insert(int data,int index){
+        if(index==0){
+            addFirst(data);
+            return;
+        }
+        if(index==size){
+            addLast(data);
+        }
+        Node temp = head;
+                for(int i =0;i<index;i++){
+                    temp = temp.ref;
+                }
+                Node newNode = new Node(data);
+          temp.ref=newNode;
+         size++;
+    }
         public void display() {
             if (head == null) {
                 System.out.println("List Is Empty");
@@ -44,9 +66,9 @@ public class LinkedList {
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
         ///AddLast
-       list.addLast(56);
-       list.addLast(30);
+       list.addFirst(56);
        list.addLast(70);
+       list.insert(30,1);
         list.display();
     }
 }
