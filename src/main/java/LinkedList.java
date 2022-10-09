@@ -12,11 +12,19 @@ public class LinkedList {
 
         }
     }
-
-    public void addFirst(int  data) {
-        Node newNode = new Node(data); // newNode=>[5|null]
-        newNode.ref = head;
-        head = newNode;
+    public void addLast(int data){
+        Node newNode = new Node(data);
+        if(head==null){
+            head = newNode;
+        }else if(head.ref == null){
+            head.ref = newNode;
+        }else{
+            Node temp = head;
+            while(temp.ref!=null){
+                temp = temp.ref;
+            }
+            temp.ref = newNode;
+        }
     }
         public void display() {
             if (head == null) {
@@ -36,9 +44,9 @@ public class LinkedList {
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
         ///AddLast
-       list.addFirst(70);
-       list.addFirst(30);
-       list.addFirst(56);
+       list.addLast(56);
+       list.addLast(30);
+       list.addLast(70);
         list.display();
     }
 }
