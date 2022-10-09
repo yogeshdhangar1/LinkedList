@@ -32,63 +32,18 @@ public class LinkedList {
         newNode .ref = head;
         head = newNode;
     }
-    public void insert(int data,int index){
-        if(index==0){
-            addFirst(data);
-            return;
-        }
-        if(index==size){
-            addLast(data);
-        }
-        Node temp = head;
-                for(int i =0;i<index;i++){
-                    temp = temp.ref;
-                }
-                Node newNode = new Node(data);
-          temp.ref=newNode;
-         size++;
-    }
-    public void deleteFirst() {
-        head = head.ref;
-
-    }
-
-    int size() {
-        int count = 0;
-
-        Node temp = head;
-        while (temp != null) {
-            count++;
-            temp = temp.ref;
-        }
-        return count;
-    }
-    public void deleteLast() {
-        if (head == null)
-            System.out.println("List is empty");
-        else if (head.ref == null)
-            head = null;
-        else {
+    public void insertAfter(int data){
+        Node newNode = new Node(data);
+        if(head.ref.ref!=null){
+            head = newNode;
+        }else{
             Node temp = head;
-
-            while (temp.ref.ref != null) {
-                temp = temp.ref;
+            while(temp.ref.ref!=null){
+                temp = temp.ref.ref;
             }
-
-            temp.ref = null;
-
+            temp = newNode;
         }
-    }
-    public Object search(int  input) {
-        Node temp = head;
-        while (temp != null) {
-            if (temp.data == input)
-                return temp.data;
 
-            temp = temp.ref;
-
-        }
-        return null;
     }
         public void display() {
             if (head == null) {
@@ -109,18 +64,10 @@ public class LinkedList {
         LinkedList list = new LinkedList();
         ///AddLast
        list.addFirst(56);
-       list.addLast(70);
-       list.insert(30,1);
-        list.display();
-        list.deleteFirst();
-        list.display();
-        list.deleteLast();
-        list.display();
-        list.addFirst(56);
-        list.insert(30,1);
-        list.addLast(70);
-        list.display();
-        list.search(30);
-        list.display();
+       list.addLast(30);
+      list.addLast(70);
+      list.display();
+      list.insertAfter(90);
+      list.display();
     }
 }
