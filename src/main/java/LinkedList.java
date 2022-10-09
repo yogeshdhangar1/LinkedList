@@ -2,11 +2,10 @@ import javax.xml.soap.Node;
 import java.util.*;
 public class LinkedList {
     Node head;
-    int size;
-
     class Node {
         int data;
         Node ref;
+        int size;
 
         public Node(int data) {
             this.data = data;
@@ -14,16 +13,11 @@ public class LinkedList {
         }
     }
 
-        public void addValue(int data) {
-            Node newNode = new Node(data);
-            newNode.ref = head;
-            head = newNode;
-            Node temp = head;
-            if (temp == head) {
-                head = temp;
-            }
-            size+=1;
-        }
+    public void addFirst(int  data) {
+        Node newNode = new Node(data); // newNode=>[5|null]
+        newNode.ref = head;
+        head = newNode;
+    }
         public void display() {
             if (head == null) {
                 System.out.println("List Is Empty");
@@ -42,9 +36,9 @@ public class LinkedList {
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
         ///AddLast
-       list.addValue(70);
-       list.addValue(30);
-       list.addValue(56);
+       list.addFirst(70);
+       list.addFirst(30);
+       list.addFirst(56);
         list.display();
     }
 }
