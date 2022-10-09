@@ -79,6 +79,17 @@ public class LinkedList {
 
         }
     }
+    public Object search(int  input) {
+        Node temp = head;
+        while (temp != null) {
+            if (temp.data == input)
+                return temp.data;
+
+            temp = temp.ref;
+
+        }
+        return null;
+    }
         public void display() {
             if (head == null) {
                 System.out.println("List Is Empty");
@@ -104,6 +115,12 @@ public class LinkedList {
         list.deleteFirst();
         list.display();
         list.deleteLast();
+        list.display();
+        list.addFirst(56);
+        list.insert(30,1);
+        list.addLast(70);
+        list.display();
+        list.search(30);
         list.display();
     }
 }
